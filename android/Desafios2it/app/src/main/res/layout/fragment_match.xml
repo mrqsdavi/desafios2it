@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:visibility="visible"/>
+
+    <RelativeLayout
+        android:id="@+id/match_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <com.yuyakaido.android.cardstackview.CardStackView
+            android:id="@+id/card_stack_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="32dp"
+            android:paddingBottom="100dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:clipToPadding="false"
+            app:visibleCount="3"
+            app:swipeThreshold="0.75"
+            app:translationDiff="12"
+            app:scaleDiff="0.02"
+            app:stackFrom="top"
+            app:elevationEnabled="true"
+            app:swipeEnabled="true"
+            app:swipeDirection="freedom_no_bottom" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/dislike_floating_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_thumb_down_black_24dp"
+            app:backgroundTint="@android:color/holo_red_dark"
+            android:tint="@color/colorWhite"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/like_floating_button"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_thumb_up_black_24dp"
+            app:backgroundTint="@android:color/holo_green_dark"
+            android:tint="@color/colorWhite"/>
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
