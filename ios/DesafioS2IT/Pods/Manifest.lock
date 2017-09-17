@@ -1,0 +1,56 @@
+PODS:
+  - Alamofire (4.5.0)
+  - Gloss (1.2.4)
+  - Koloda (4.1):
+    - pop (~> 1.0)
+  - MRProgress (0.8.3):
+    - MRProgress/ActivityIndicator (= 0.8.3)
+    - MRProgress/Blur (= 0.8.3)
+    - MRProgress/Circular (= 0.8.3)
+    - MRProgress/Icons (= 0.8.3)
+    - MRProgress/NavigationBarProgress (= 0.8.3)
+    - MRProgress/Overlay (= 0.8.3)
+  - MRProgress/ActivityIndicator (0.8.3):
+    - MRProgress/Stopable
+  - MRProgress/Blur (0.8.3):
+    - MRProgress/Helper
+  - MRProgress/Circular (0.8.3):
+    - MRProgress/Helper
+    - MRProgress/ProgressBaseClass
+    - MRProgress/Stopable
+  - MRProgress/Helper (0.8.3)
+  - MRProgress/Icons (0.8.3)
+  - MRProgress/NavigationBarProgress (0.8.3):
+    - MRProgress/ProgressBaseClass
+  - MRProgress/Overlay (0.8.3):
+    - MRProgress/ActivityIndicator
+    - MRProgress/Blur
+    - MRProgress/Circular
+    - MRProgress/Helper
+    - MRProgress/Icons
+  - MRProgress/ProgressBaseClass (0.8.3)
+  - MRProgress/Stopable (0.8.3):
+    - MRProgress/Helper
+  - pop (1.0.10)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - Gloss
+  - Koloda (~> 4.0)
+  - MRProgress
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
+  Koloda: 6c4fa3ce9a68776a8ef973311e53fdda432799a8
+  MRProgress: 16de7cc9f347e8846797a770db102a323fe7ef09
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+
+PODFILE CHECKSUM: 2aad978ed93a402f6851d28b467bdec9ad457419
+
+COCOAPODS: 1.3.1

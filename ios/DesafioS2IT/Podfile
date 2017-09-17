@@ -1,0 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
+inhibit_all_warnings!
+use_frameworks!
+
+target 'DesafioS2IT'
+pod 'Alamofire', '~> 4.5'
+pod 'MRProgress'
+pod 'Gloss'
+pod 'Koloda', '~> 4.0'
+pod 'SDWebImage'

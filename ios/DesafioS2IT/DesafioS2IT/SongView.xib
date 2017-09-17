@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SongView" customModule="DesafioS2IT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cl-c9-Aup">
+                    <rect key="frame" x="0.0" y="574" width="375" height="93"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-hy-ThF">
+                            <rect key="frame" x="16" y="44" width="343" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ML2-7m-wuq">
+                            <rect key="frame" x="16" y="12" width="343" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ML2-7m-wuq" secondAttribute="trailing" constant="16" id="Eak-Hb-Jt0"/>
+                        <constraint firstItem="kEG-hy-ThF" firstAttribute="top" secondItem="ML2-7m-wuq" secondAttribute="bottom" constant="3" id="F1t-0P-enw"/>
+                        <constraint firstAttribute="trailing" secondItem="kEG-hy-ThF" secondAttribute="trailing" constant="16" id="aVb-79-FqV"/>
+                        <constraint firstItem="ML2-7m-wuq" firstAttribute="leading" secondItem="6cl-c9-Aup" secondAttribute="leading" constant="16" id="dbc-j6-tPn"/>
+                        <constraint firstItem="kEG-hy-ThF" firstAttribute="leading" secondItem="6cl-c9-Aup" secondAttribute="leading" constant="16" id="fef-6M-4pm"/>
+                        <constraint firstItem="ML2-7m-wuq" firstAttribute="top" secondItem="6cl-c9-Aup" secondAttribute="top" constant="12" id="lDc-v1-Afo"/>
+                        <constraint firstAttribute="height" constant="93" id="pWY-Dj-Kg2"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTH-St-rhb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="566"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6cl-c9-Aup" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="12o-XR-yTW"/>
+                <constraint firstAttribute="trailing" secondItem="6cl-c9-Aup" secondAttribute="trailing" id="Awl-8c-k7j"/>
+                <constraint firstAttribute="trailing" secondItem="tTH-St-rhb" secondAttribute="trailing" id="EER-t7-APE"/>
+                <constraint firstItem="tTH-St-rhb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Wvz-Ck-Giv"/>
+                <constraint firstItem="tTH-St-rhb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fli-vO-Zkd"/>
+                <constraint firstAttribute="bottom" secondItem="6cl-c9-Aup" secondAttribute="bottom" id="k3Y-Km-EHg"/>
+                <constraint firstItem="6cl-c9-Aup" firstAttribute="top" secondItem="tTH-St-rhb" secondAttribute="bottom" constant="8" id="sNg-qI-bxU"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBound" value="YES"/>
+                <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                    <size key="value" width="0.0" height="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                    <real key="value" value="0.29999999999999999"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="detail" destination="kEG-hy-ThF" id="ydk-Ol-eEH"/>
+                <outlet property="image" destination="tTH-St-rhb" id="EK6-T5-Yvg"/>
+                <outlet property="title" destination="ML2-7m-wuq" id="Y0p-CS-fgS"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="87.5"/>
+        </view>
+    </objects>
+</document>
