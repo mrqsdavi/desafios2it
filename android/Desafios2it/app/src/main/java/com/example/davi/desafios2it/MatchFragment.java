@@ -4,10 +4,12 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.davi.desafios2it.Adapter.SongCardAdapter;
+import com.example.davi.desafios2it.Util.Connection;
 import com.example.davi.desafios2it.Util.DataSource;
 import com.example.davi.desafios2it.Model.Song;
 import com.yuyakaido.android.cardstackview.CardStackView;
@@ -101,39 +104,73 @@ public class MatchFragment extends Fragment {
         });
     }
 
+    private void showError(String titulo, String mensagem){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(titulo);
+        builder.setMessage(mensagem);
+
+        builder.setPositiveButton("Tentar novamente",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        reloadData();
+                    }
+                });
+
+        builder.setNegativeButton("Cancelar",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     private void reloadData(){
 
 
-        AsyncTask downloadAsync = new AsyncTask() {
+        if(Connection.isOnline(this.getContext())){
+            AsyncTask downloadAsync = new AsyncTask() {
 
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                progressBar.setVisibility(View.VISIBLE);
-                matchLinearLayout.setVisibility(View.GONE);
-            }
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    progressBar.setVisibility(View.VISIBLE);
+                    matchLinearLayout.setVisibility(View.GONE);
+                }
 
-            @Override
-            protected Object doInBackground(Object[] objects) {
-                String url = (String) objects[0];
-                List<Song> songs = source.getSongs(url);
-                return songs;
-            }
+                @Override
+                protected Object doInBackground(Object[] objects) {
+                    String url = (String) objects[0];
+                    List<Song> songs = source.getSongs(url);
+                    return songs;
+                }
 
-            @Override
-            protected void onPostExecute(Object result) {
-                List<Song> songsResult = (List<Song>) result;
-                adapter = new SongCardAdapter(content.getContext());
-                songs = songsResult;
-                adapter.addAll(songs);
-                cardStackView.setAdapter(adapter);
-                progressBar.setVisibility(View.GONE);
-                matchLinearLayout.setVisibility(View.VISIBLE);
-            }
+                @Override
+                protected void onPostExecute(Object result) {
+                    progressBar.setVisibility(View.GONE);
 
-        };
+                    if(result != null){
+                        List<Song> songsResult = (List<Song>) result;
+                        adapter = new SongCardAdapter(content.getContext());
+                        songs = songsResult;
+                        adapter.addAll(songs);
+                        cardStackView.setAdapter(adapter);
+                        matchLinearLayout.setVisibility(View.VISIBLE);
+                    }else{
+                        showError("Erro", "Um erro inesperado aconteceu");
+                    }
 
-        downloadAsync.execute("https://itunes.apple.com/search?term=rock");
+                }
+
+            };
+            downloadAsync.execute("https://itunes.apple.com/search?term=rock");
+        }else{
+            progressBar.setVisibility(View.GONE);
+            showError("Sem conexão", "Não foi possível conectar com a internet");
+        }
 
 
     }

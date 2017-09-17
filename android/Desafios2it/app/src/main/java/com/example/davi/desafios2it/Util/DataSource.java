@@ -49,16 +49,16 @@ public class DataSource {
 
         try {
             songs = new Gson().fromJson(jsonObject.getJSONArray("results").toString(), listType);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(songs == null){
-            songs = new ArrayList<>();
+        if(songs != null){
+            long seed = System.nanoTime();
+            Collections.shuffle(songs, new Random(seed));
         }
 
-        long seed = System.nanoTime();
-        Collections.shuffle(songs, new Random(seed));
+
 
         return songs;
     }
@@ -113,6 +113,7 @@ public class DataSource {
         try {
             URL url = new URL(urlString);
             connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(10000);
             connection.connect();
 
             InputStream input = connection.getInputStream();
@@ -126,8 +127,7 @@ public class DataSource {
 
     }
 
-    String inputStreamToString(InputStream is)
-    {
+    String inputStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder stringBuilder = new StringBuilder();
         String line = null;

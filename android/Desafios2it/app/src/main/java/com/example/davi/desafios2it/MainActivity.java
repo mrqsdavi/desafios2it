@@ -23,9 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_match:
+                    getSupportActionBar().setTitle("Match");
                     fragment = new MatchFragment();
                     break;
                 case R.id.navigation_like:
+                    getSupportActionBar().setTitle("Gostei");
                     fragment = new LikeFragment();
                     break;
             }
