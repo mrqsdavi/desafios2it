@@ -113,7 +113,8 @@ public class DataSource {
         try {
             URL url = new URL(urlString);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setConnectTimeout(10000);
+            connection.setConnectTimeout(15000);
+            connection.setReadTimeout(10000);
             connection.connect();
 
             InputStream input = connection.getInputStream();
